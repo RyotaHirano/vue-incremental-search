@@ -27,7 +27,7 @@
       search: function(value) {
         this.searchValue = value
         if(value === '') {
-          this.suggestions = []
+          this.clearSuggetions()
         } else {
           const re = new RegExp(value, 'i')
           this.suggestions = [...this.list1].filter(name => re.test(name))
@@ -36,6 +36,11 @@
 
       setInput: function(value) {
         this.searchValue = value
+        this.clearSuggetions()
+      },
+
+      clearSuggetions: function () {
+        this.suggestions = []
       }
     }
   }
